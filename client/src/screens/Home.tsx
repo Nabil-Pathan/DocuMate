@@ -7,6 +7,7 @@ import axios from 'axios'
 import CreateDocModal from '../components/CreateDocModal'
 import DocumentImage from "../images/document2.png"
 import Loader from '../components/Loader'
+import { useNavigate } from 'react-router-dom'
 
 interface DocumentType {
   _id : string
@@ -19,6 +20,8 @@ interface DocumentType {
 const Home = () => {
 
   const { user } = useUserContext()
+
+  const navigate = useNavigate()
 
   const [loading , setLoading] = useState(false)
 
@@ -52,13 +55,21 @@ const Home = () => {
   }, [user])
 
 
+  const handleShowModal = ()=>{
+    if(user === null){
+      navigate('/login')
+    }
+    setShowModal(true)
+  }
+
+
   return (
     <>
       {
         showModal ? (<CreateDocModal setShowModal={setShowModal} />)  : loading ? (<Loader/>) :(
           <div className='container mx-auto md:px-10 px-4 md:py-8 py-3'>
             <div className='grid md:grid-cols-5 grid-cols-2'>
-              <button onClick={() => setShowModal(true)}>
+              <button onClick={handleShowModal}>
                 <div className='bg-gray-200  flex items-center justify-center py-12'>
                   <FontAwesomeIcon className='text-3xl' icon={faPlus} />
                 </div>
