@@ -4,6 +4,9 @@ import io from "socket.io-client"
 
 const END_POINT = "https://documate-3c2s.onrender.com"
 
+// const END_POINT = "http://localhost:5000"
+
+
 export const useSocket = ()=>{
     const [socket , setSocket] = useState<Socket | null>()
 

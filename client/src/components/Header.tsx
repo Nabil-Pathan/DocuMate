@@ -13,9 +13,8 @@ const Header = () => {
     <header className='bg-gray-300 sticky top-0 z-50 md:px-8 px-3 shadow-md'>
     <div className='flex justify-between items-center  mx-auto p-3'>
       <Link to='/'>
-        <h1 className='font-bold text-xl sm:text-xl flex flex-wrap'>
-          <span className='text-gray-500'>Google</span>
-          <span className='text-gray-500'> Docs</span>
+        <h1 className='font-bold md:text-2xl text-xl text-gray-900 flex flex-wrap'>
+          DocuMate
         </h1>
       </Link>
       {/* <ul className='flex justify-between gap-4'>

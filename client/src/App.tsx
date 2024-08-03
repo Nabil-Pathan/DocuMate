@@ -6,6 +6,7 @@ import Header from "./components/Header"
 import { Toaster } from "react-hot-toast"
 import Document from "./screens/Document"
 import Profile from "./screens/Profile"
+import PrivateRoutes from "./components/routes/PrivateRoutes"
 
 function App() {
 
@@ -25,8 +26,8 @@ function App() {
     <Header/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/profile" element={<Profile/>}/>
-        <Route path="/document/:id" element={<Document/>}/>
+        <Route path="/profile" element={  <PrivateRoutes children={<Profile/>} />} />
+        <Route path="/document/:id" element={<PrivateRoutes children={<Document/>}/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/login" element={<Login/>}/>
       </Routes>
