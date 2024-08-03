@@ -50,6 +50,7 @@ io.on('connection', (socket: Socket) => {
     });
 
     socket.on('send-changes', (documentId: string, delta: any) => {
+        // console.log('Inside Send Changes : ', documentId , delta);
         socket.to(documentId).emit('receive-changes', delta);
     });
 

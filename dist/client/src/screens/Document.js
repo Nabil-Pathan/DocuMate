@@ -52,9 +52,11 @@ const Document = () => {
         if (socket == null || quill == null)
             return;
         socket.emit('join-document', id, user === null || user === void 0 ? void 0 : user.user.name);
-        const handler = (delta, source) => {
+        const handler = (delta, oldDelta, source) => {
             if (source !== 'user')
                 return;
+            // Log oldDelta to avoid unused variable error
+            console.log('Previous Changes:', oldDelta);
             socket.emit('send-changes', id, delta);
         };
         quill.on('text-change', handler);

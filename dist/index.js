@@ -50,6 +50,7 @@ io.on('connection', (socket) => {
         // console.log(`Socket ${socket.id} joined document ${documentId}`);
     });
     socket.on('send-changes', (documentId, delta) => {
+        // console.log('Inside Send Changes : ', documentId , delta);
         socket.to(documentId).emit('receive-changes', delta);
     });
     socket.on('save-document', (documentId, delta) => __awaiter(void 0, void 0, void 0, function* () {
